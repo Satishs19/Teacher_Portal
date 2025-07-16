@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'css/student_styles.css' %}">
+    <script src="{% static 'js/student.js' %}"></script>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">Teacher Portal</div>
+    <div>
+      <a>Welcome {{ username|default:"Teacher" }}</a>
+      <a href="{% url 'logout' %}" style="color: red;">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Student details</h2>
+    <div class="action-bar">
+      <input type="text" id="searchInput" placeholder="Search students..." onkeyup="searchStudents()">
+      <button class="add-button" onclick="openModal()">Add</button>
+    </div>
+
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Subject</th>
+          <th>Marks</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="studentTableBody">
+        <tr>
+          <td>Sean Abot</td>
+          <td>Maths</td>
+          <td>77</td>
+          <td class="actions">
+            <button class="edit" onclick="editRow(this)">Edit</button>
+            <button class="delete" onclick="deleteRow(this)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Shiv Yadav</td>
+          <td>Chemistry</td>
+          <td>80</td>
+          <td class="actions">
+            <button class="edit" onclick="editRow(this)">Edit</button>
+            <button class="delete" onclick="deleteRow(this)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Popup form window-->
+  <div id="studentModal" class="modal">
+    <div class="modal-content">
+      <h2>Add Student</h2>
+      <label>Name:</label>
+      <input type="text" id="modalName" placeholder="Name"/>
+      <label>Subject:</label>
+      <input type="text" id="modalSubject" placeholder="Subject"/>
+      <label>Mark:</label>
+      <input type="number" id="modalMark" placeholder="Marks"/>
+      <div>
+        <button onclick="addStudent()">Add</button>
+      <button onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
