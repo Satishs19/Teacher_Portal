@@ -75,9 +75,8 @@ Step 2: Create Database and User
 --------------------------------
 $ psql postgres
 
+CREATE USER teacher_user WITH SUPERUSER PASSWORD 'securepassword';
 CREATE DATABASE teacher_portal;
-CREATE USER teacher_user WITH PASSWORD 'securepassword';
-GRANT ALL PRIVILEGES ON DATABASE teacher_portal TO teacher_user;
 
 Step 3: Update settings.py
 --------------------------
