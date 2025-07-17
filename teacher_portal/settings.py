@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'teacher_portal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'teacher_portal',
-        'USER': 'tp_admin',
+        'NAME': 'teacher',
+        'USER': 'tpad',
         'PASSWORD': 'TPadmin12345',
         'HOST': 'localhost',
         'PORT': '5432',
